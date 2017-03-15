@@ -1,0 +1,38 @@
+ <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container mynav">
+        <div class="navbar-header">
+            <a class="navbar-brand" routerLink="/main" routerLinkActive="active"><img class="logo" src="../images/logo.png"></a>
+        </div>
+        <div class="collapse navbar-collapse" id="responsive-menu">
+            <ul class="nav navbar-nav mydrop">
+                <li><a (click)="goMainPage()" >Главная</a></li>
+                <li><a  (click)="goPhotoGallery()">Фотогалерея</a></li>
+                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Цены</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Все цены</a></li>
+                        <li><a href="#">Студентам</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">Акции</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Карта</a></li>
+            </ul>
+            <div class="personal">
+                <div [ngClass]="{'visible': role.isGuest(), 'invisible': role.isAdmin()||role.isUser()}">
+                    <a>Вход </a>
+                    |
+                    <a (click)="goRegistration()"> Регистрация</a>
+                </div>
+                <div [ngClass]="{'visible': role.isAdmin()||role.isUser(), 'invisible': role.isGuest()}">
+                    <img class="no-photo" src="../images/no-photo.png">
+                    <a class="login">{{role.getTitle()}}</a>
+                    |
+                    <a (click)="exit()"> Выйти</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="cont">
+    <router-outlet></router-outlet>
+</div>

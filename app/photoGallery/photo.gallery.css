@@ -1,0 +1,17 @@
+.container{
+    height: 100px;
+}
+.my{
+    margin-top: 30px;
+    color: #c7ddef;
+    font-weight: bolder;
+    font-size: 250%;
+    font-style: italic;
+    font-family: "Cambria Math";
+}
+.galleria{ 
+    width: 1100px; height: 600px; background: #000
+    }
+.lent{
+    margin-left: 700px;
+}

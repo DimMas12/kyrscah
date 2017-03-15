@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Angular QuickStart</title>
+    <style type="text/css">
+        .galleria{ width: 700px; height: 400px; background: #000 }
+    </style>
+     <base href="/" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Загрузка библиотек -->
+    <!-- Polyfill(s) для старых браузеров -->
+    <script src="node_modules/core-js/client/shim.min.js"></script>
+    <script src="node_modules/zone.js/dist/zone.js"></script>
+    <script src="node_modules/reflect-metadata/Reflect.js"></script>
+    <script src="node_modules/systemjs/dist/system.src.js"></script>
+    <script src="app/photoGallery/start.js"></script>
+     <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
+    <script src="app/scripts/galleria/galleria-1.4.2.min.js"></script>
+
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+    <!--Настройка SystemJS -->
+    <script src="systemjs.config.js"></script>
+
+    <script>
+    System.import('app').catch(function(err){
+        console.error(err);
+    });
+</script>
+</head>
+
+
+<body>
+    <my-app >Loading...</my-app>
+</body>
+</html>

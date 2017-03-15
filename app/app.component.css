@@ -1,0 +1,54 @@
+.cont{
+    margin-top: 70px;
+}
+.mynav{
+    height: 60px;
+}
+.mynav li a{
+    margin-top: 5px;
+    padding-left: 30px;
+    font-size: 140%;
+   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.dropdown:hover > .dropdown-menu {
+    display: block;
+}
+.logo{
+    width: 70px;
+    margin-top: -15px;
+}
+.mydrop  li a:hover{
+    cursor: pointer;
+}
+.personal{
+    position: absolute;
+    margin-left: 1150px;
+    margin-top: 15px;
+    height: 50px;
+    width: 300px;
+    color: white;
+}
+.personal a{
+    color: white;
+   font-size: 120%;
+}
+.personal a:hover{
+    cursor: pointer;
+}
+
+.invisible{
+    display: none;
+}
+
+.visible{
+    display: block;
+}
+.login{
+    font-weight: bolder;
+    color: green;
+}
+.no-photo{
+    margin-top: -5px;
+    width: 70px;
+    height: 40px;
+}

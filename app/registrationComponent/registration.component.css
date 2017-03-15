@@ -1,0 +1,37 @@
+.registration-form{
+    margin-left: 450px;
+    margin-top: 150px;
+    width: 700px;
+    height: 500px;
+    background: url("../../images/page.png") no-repeat;
+    background-size: 100%;
+    animation: move 0.3s linear;
+}
+.first{
+    margin-top: 50px;
+}
+.form-group{
+    margin-left:30px
+}
+.form-control{
+    width: 600px;
+}
+.registration-button{
+    margin-left: 65%;
+    width: 200px;
+}
+.registration-button:hover{
+    cursor: pointer;
+    width: 203px;
+}
+@keyframes move
+{
+    0% {
+        margin-left: 900px;
+    }
+
+    100%
+    {
+        margin-left: 450px;
+    }
+}
