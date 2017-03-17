@@ -17,6 +17,8 @@ var registration_component_1 = require("./registrationComponent/registration.com
 var posts_service_1 = require("./services/posts.service");
 var http_1 = require("@angular/http");
 var forms_1 = require("@angular/forms");
+var core_2 = require("angular2-google-maps/core");
+var google_map_component_1 = require("./googleMap/google.map.component");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -24,8 +26,10 @@ var AppModule = (function () {
 }());
 AppModule = __decorate([
     core_1.NgModule({
-        imports: [platform_browser_1.BrowserModule, forms_1.FormsModule, http_1.HttpModule, router_1.RouterModule.forRoot(app_routes_1.routes)],
-        declarations: [app_component_1.AppComponent, main_page_1.MainPage, photo_gallery_1.PhotoGallery, registration_component_1.RegistrationComponent],
+        imports: [platform_browser_1.BrowserModule, forms_1.FormsModule, http_1.HttpModule, core_2.AgmCoreModule.forRoot({
+                apiKey: 'AIzaSyCpW3itKX63qjTBrU_EaFpBsRu24lb5GLE'
+            }), router_1.RouterModule.forRoot(app_routes_1.routes)],
+        declarations: [app_component_1.AppComponent, main_page_1.MainPage, photo_gallery_1.PhotoGallery, registration_component_1.RegistrationComponent, google_map_component_1.GoogleMap],
         providers: [posts_service_1.PostsService],
         bootstrap: [app_component_1.AppComponent]
     })

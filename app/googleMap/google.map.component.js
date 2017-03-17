@@ -9,40 +9,38 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+/**
+ * Created by Влад on 17.03.2017.
+ */
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
-var LocaleAuth_1 = require("./Entities/LocaleAuth");
-var AppComponent = (function () {
-    function AppComponent(router) {
+var GoogleMap = (function () {
+    function GoogleMap(router) {
         this.router = router;
-        this.auth = new LocaleAuth_1.LocaleAuth();
+        this.lat = 53.896674;
+        this.lng = 27.500333;
+        this.title = "Тренажерный зал «Викинг» ждет вас";
+        this.number1 = "376 60 52";
+        this.number2 = "668 60 57";
+        this.number3 = "686 60 57";
+        this.adress = "ул. Харьковская 86, Минск, Беларусь";
+        this.time1 = "Пн-пт: c 7:00 до 23:00";
+        this.timeWeekend = "Сб-вс и праздничные дни: c 9:00 до 21:00";
+        this.email = "nikitin_vladislav1996@mail.ru";
     }
-    AppComponent.prototype.goMainPage = function () {
+    GoogleMap.prototype.clickMarker = function () {
         this.router.navigate(["main"]);
     };
-    AppComponent.prototype.goPhotoGallery = function () {
-        this.router.navigate(["photos"]);
-    };
-    AppComponent.prototype.goRegistration = function () {
-        this.router.navigate(["registration"]);
-    };
-    AppComponent.prototype.goMap = function () {
-        this.router.navigate(["map"]);
-    };
-    AppComponent.prototype.exit = function () {
-        this.auth.logOut();
-        this.goMainPage();
-    };
-    return AppComponent;
+    return GoogleMap;
 }());
-AppComponent = __decorate([
+GoogleMap = __decorate([
     core_1.Component({
         moduleId: module.id,
-        selector: "my-app",
-        templateUrl: "app.component.html",
-        styleUrls: ["app.component.css"]
+        selector: 'google-map',
+        templateUrl: 'google.map.html',
+        styleUrls: ['google.map.css']
     }),
     __metadata("design:paramtypes", [router_1.Router])
-], AppComponent);
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+], GoogleMap);
+exports.GoogleMap = GoogleMap;
+//# sourceMappingURL=google.map.component.js.map

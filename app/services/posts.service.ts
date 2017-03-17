@@ -15,8 +15,12 @@ export class PostsService {
         let bodyString = JSON.stringify(body);
         let headers      = new  Headers({'Content-Type': 'application/json' });
         let options       = new RequestOptions({ headers: headers});
-        return this.http.post(url, bodyString, options)
+        return this.http.post('http://localhost:8080/'+url, bodyString, options)
             .map((res:Response) => res.json());
+    }
+    getPhotos(url:string) {
+        return this.http.get('http://localhost:8080/'+url)
+            .map(res=>res.json());
     }
 }
 

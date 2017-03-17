@@ -20,6 +20,7 @@
       // other libraries
       'rxjs':                      'npm:rxjs',
       'angular-in-memory-web-api': 'npm:angular-in-memory-web-api',
+      'angular2-google-maps/core': 'npm:angular2-google-maps/core/core.umd.js'
     },
     // Указываем как выполнять загрузку файлов, когда отсутствует имя файла или его расширение
     packages: {

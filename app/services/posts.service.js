@@ -23,7 +23,11 @@ var PostsService = (function () {
         var bodyString = JSON.stringify(body);
         var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
         var options = new http_1.RequestOptions({ headers: headers });
-        return this.http.post(url, bodyString, options)
+        return this.http.post('http://localhost:8080/' + url, bodyString, options)
+            .map(function (res) { return res.json(); });
+    };
+    PostsService.prototype.getPhotos = function (url) {
+        return this.http.get('http://localhost:8080/' + url)
             .map(function (res) { return res.json(); });
     };
     return PostsService;

@@ -6,35 +6,35 @@ import {PostsService} from "../services/posts.service";
 import {User} from "../Entities/User";
 import {Role} from "../Entities/Role";
 import {Router} from "@angular/router";
+import {LocaleAuth} from "../Entities/LocaleAuth";
 
 @Component({
     moduleId:module.id,
     selector:"registration",
     templateUrl:"registration.component.html",
-    styleUrls:["registration.component.css"]
+    styleUrls:["registration.component.css"],
 })
 export class RegistrationComponent{
-
     id:number;
     name:string;
     login:string;
     pass:string;
     email:string;
     isAdmin:boolean;
+    auth:LocaleAuth;
     constructor(private postsService:PostsService, private router:Router){
         this.isAdmin=false;
         this.id=1;
+        this.auth=new LocaleAuth();
     }
 
     sendUser():void{
         var user:User=new User(this.id,this.name,this.login,this.pass,this.email,this.isAdmin);
-        console.log(user);
-        this.postsService.sendPost(user,'http://localhost:8080/createUser').subscribe(answer=>{
+        this.postsService.sendPost(user,'createUser').subscribe(answer=>{
             console.log(answer.title);
         });
-        var role:Role=new Role();
-        role.setUser();
-        Role.title=this.name;
+        Role.title=this.login;
+        this.auth.logIn(user);
         this.router.navigate([""]);
     }
 }

@@ -10,14 +10,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
+var posts_service_1 = require("../services/posts.service");
 var PhotoGallery = (function () {
-    function PhotoGallery() {
+    function PhotoGallery(postsService) {
+        this.postsService = postsService;
         this.photos = [];
-        for (var i = 0; i < 9; i++) {
-            this.photos.push('../../images/gym/' + (i + 1) + '.jpg');
-        }
-        startGalerea();
+        this.init();
     }
+    PhotoGallery.prototype.init = function () {
+        var _this = this;
+        this.postsService.getPhotos('getPhotos').subscribe(function (answer) {
+            var clone = answer;
+            for (var i = 0; i < clone.length; i++) {
+                _this.photos.push('../../images/gym/' + clone[i]);
+            }
+        });
+        startGalerea();
+    };
     return PhotoGallery;
 }());
 PhotoGallery = __decorate([
@@ -27,7 +36,7 @@ PhotoGallery = __decorate([
         templateUrl: "photo.gallery.html",
         styleUrls: ["photo.gallery.css"]
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [posts_service_1.PostsService])
 ], PhotoGallery);
 exports.PhotoGallery = PhotoGallery;
 //# sourceMappingURL=photo.gallery.js.map

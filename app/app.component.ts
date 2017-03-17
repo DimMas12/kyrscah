@@ -1,6 +1,7 @@
 import {Component, Input} from '@angular/core';
 import {Router} from "@angular/router";
 import {Role} from "./Entities/Role";
+import {LocaleAuth} from "./Entities/LocaleAuth";
 
 @Component({
     moduleId:module.id,
@@ -9,10 +10,9 @@ import {Role} from "./Entities/Role";
     styleUrls:["app.component.css"]
 })
 export class AppComponent{
-    role:Role;
-
+    auth:LocaleAuth;
     constructor(private router:Router){
-        this.role=new Role();
+        this.auth=new LocaleAuth();
     }
 
     goMainPage(){
@@ -24,8 +24,11 @@ export class AppComponent{
     goRegistration(){
         this.router.navigate(["registration"]);
     }
+    goMap(){
+        this.router.navigate(["map"]);
+    }
     exit():void{
-        this.role.setGuest();
+        this.auth.logOut();
         this.goMainPage();
     }
 }

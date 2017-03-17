@@ -15,17 +15,17 @@
                         <li><a href="#">Акции</a></li>
                     </ul>
                 </li>
-                <li><a href="#">Карта</a></li>
+                <li><a (click)="goMap()">Карта</a></li>
             </ul>
             <div class="personal">
-                <div [ngClass]="{'visible': role.isGuest(), 'invisible': role.isAdmin()||role.isUser()}">
+                <div [ngClass]="{'visible': !auth.checkAuth(), 'invisible': auth.checkAuth()}">
                     <a>Вход </a>
                     |
                     <a (click)="goRegistration()"> Регистрация</a>
                 </div>
-                <div [ngClass]="{'visible': role.isAdmin()||role.isUser(), 'invisible': role.isGuest()}">
+                <div [ngClass]="{'visible': auth.checkAuth(), 'invisible': !auth.checkAuth()}">
                     <img class="no-photo" src="../images/no-photo.png">
-                    <a class="login">{{role.getTitle()}}</a>
+                    <a class="login">{{auth.getUser()}}</a>
                     |
                     <a (click)="exit()"> Выйти</a>
                 </div>

@@ -17,22 +17,22 @@ var posts_service_1 = require("../services/posts.service");
 var User_1 = require("../Entities/User");
 var Role_1 = require("../Entities/Role");
 var router_1 = require("@angular/router");
+var LocaleAuth_1 = require("../Entities/LocaleAuth");
 var RegistrationComponent = (function () {
     function RegistrationComponent(postsService, router) {
         this.postsService = postsService;
         this.router = router;
         this.isAdmin = false;
         this.id = 1;
+        this.auth = new LocaleAuth_1.LocaleAuth();
     }
     RegistrationComponent.prototype.sendUser = function () {
         var user = new User_1.User(this.id, this.name, this.login, this.pass, this.email, this.isAdmin);
-        console.log(user);
-        this.postsService.sendPost(user, 'http://localhost:8080/createUser').subscribe(function (answer) {
+        this.postsService.sendPost(user, 'createUser').subscribe(function (answer) {
             console.log(answer.title);
         });
-        var role = new Role_1.Role();
-        role.setUser();
-        Role_1.Role.title = this.name;
+        Role_1.Role.title = this.login;
+        this.auth.logIn(user);
         this.router.navigate([""]);
     };
     return RegistrationComponent;

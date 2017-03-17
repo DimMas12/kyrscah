@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-
+import {PostsService} from "../services/posts.service";
+// import {Ng2Uploader} from '../../node_modules/ng2-file-uploader/src/services/ng2-uploader'
+declare function startGalerea();
 
 @Component({
     moduleId:module.id,
@@ -7,12 +9,20 @@ import { Component } from '@angular/core';
     templateUrl:"photo.gallery.html",
     styleUrls:["photo.gallery.css"]
 })
+
 export class PhotoGallery{
     photos:string[]=[];
-    constructor(){
-        for(var i=0;i<9;i++){
-            this.photos.push('../../images/gym/'+(i+1)+'.jpg');
-        }
+    constructor(private postsService:PostsService){
+        this.init();
+
+    }
+    init(){
+        this.postsService.getPhotos('getPhotos').subscribe(answer=>{
+            var clone:string[]=answer;
+            for(var i=0;i<clone.length;i++){
+                this.photos.push('../../images/gym/'+clone[i]);
+            }
+        });
         startGalerea();
     }
 
